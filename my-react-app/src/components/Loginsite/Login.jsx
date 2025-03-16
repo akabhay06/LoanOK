@@ -1,8 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx"; // Importing hamburger icon
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -29,19 +32,19 @@ const Login = () => {
       {/* Dropdown Menu */}
       {menuOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border">
-          <a
-            href="/loanstatus"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-          >
-            My Application Status
-          </a>
-          <button
-            onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-            className="w-full font-medium text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-          >
-            Logout
-          </button>
-        </div>
+        <button
+          onClick={() => navigate("/loanstatus")} // 👈 Use navigate here
+          className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100"
+        >
+          My Application Status
+        </button>
+        <button
+          onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+          className="w-full font-medium text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+        >
+          Logout
+        </button>
+      </div>
       )}
     </div>
   );
