@@ -1,6 +1,11 @@
-
+import { useNavigate } from "react-router-dom";
 
 const Insurance = () => {
+
+
+  const navigate = useNavigate();
+
+
   return (
     <div className="bg-gradient-to-r from-[#f2efe4] to-[#e3dacb] ">
       {/* Header Section */}
@@ -30,19 +35,22 @@ const Insurance = () => {
 
         </a>
 
-        <a href="/genralinsurance" className="transform transition duration-300 hover:scale-105">
-          <div className="relative w-60 h-56 bg-gradient-to-r from-[#968273] to-[#74665c] rounded-xl shadow-lg overflow-visible">
-            <p className="text-center text-2xl font-medium text-white pt-3">General Insurance</p>
-            <div className="bg-gradient-to-r from-[#4e3e2e] to-[#4e3e2e] border text-center text-sm w-fit mx-auto text-white p-1 px-6 rounded-2xl mt-3">
-              Shield Your Assets
-            </div>
-            <img
-              src="generallogo.png"
-              alt="Life Insurance"
-              className="absolute -bottom-6 -right-20 w-30 h-30 object-contain"
-            />
-          </div>
-        </a>
+        <div 
+      className="transform transition duration-300 hover:scale-105 cursor-pointer"
+      onClick={() => navigate("/genralinsurance")}  // 👈 Added onClick here
+    >
+      <div className="relative w-60 h-56 bg-gradient-to-r from-[#968273] to-[#74665c] rounded-xl shadow-lg overflow-visible">
+        <p className="text-center text-2xl font-medium text-white pt-3">General Insurance</p>
+        <div className="bg-gradient-to-r from-[#4e3e2e] to-[#4e3e2e] border text-center text-sm w-fit mx-auto text-white p-1 px-6 rounded-2xl mt-3">
+          Shield Your Assets
+        </div>
+        <img
+          src="generallogo.png"
+          alt="Life Insurance"
+          className="absolute -bottom-6 -right-20 w-30 h-30 object-contain"
+        />
+      </div>
+    </div>
 
         <a href="/healthinsurance" className="transform transition duration-300 hover:scale-105">
           <div className="relative w-60 h-56 bg-gradient-to-r from-[#968273] to-[#74665c] rounded-xl shadow-lg overflow-visible">
